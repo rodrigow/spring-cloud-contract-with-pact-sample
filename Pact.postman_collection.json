@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "2204b291-c3a6-4eed-9bcb-e485a7c62b4d",
+		"name": "Pact",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Publish Pact",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"consumer\": {\n    \"name\": \"web-client\"\n  },\n  \"provider\": {\n    \"name\": \"greeting-service\"\n  },\n  \"interactions\": [\n    {\n      \"description\" : \"A request for a greeting\",\n      \"provider_state\": \"Greetings!\",\n      \"request\": {\n        \"method\": \"get\",\n        \"path\" : \"/greeting\"\n      },\n      \"response\": {\n        \"status\": 200,\n        \"body\" : {\n            \"message\": \"Greetings!\"\n        }\n      }\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9292/pacts/provider/greeting-service/consumer/web-client/version/latest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9292",
+					"path": [
+						"pacts",
+						"provider",
+						"greeting-service",
+						"consumer",
+						"web-client",
+						"version",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
